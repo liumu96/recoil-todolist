@@ -1,19 +1,8 @@
 import React from "react";
 
-import { atom, useRecoilValue, useRecoilState, selector } from "recoil";
+import { useRecoilValue, useRecoilState } from "recoil";
 
-const textState = atom({
-  key: "textState",
-  default: ""
-});
-
-const charCountState = selector({
-  key: "charCountState",
-  get: ({ get }) => {
-    const text = get(textState);
-    return text.length;
-  }
-});
+import { textState, charCountState } from "../../Atoms";
 
 function CharacterCount() {
   const count = useRecoilValue(charCountState);
